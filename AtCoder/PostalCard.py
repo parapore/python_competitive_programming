@@ -4,21 +4,14 @@ s = []
 for i in range(n):
     s.append(input())
 
-t = []
+t = set()
 for i in range(m):
-    t.append(input())
+    t.add(input())
 
 ans = 0
-for i in range(n):
-    for j in range(m):
-        for k in range(3, 6):
-            b = True
-            if s[i][k] != t[j][k-3]:
-                b = False
-                break
-
-        if b == True:
-                ans += 1
-                break
+for i in s:
+    for j in t:
+        if i[3:] == j:
+            ans += 1
                 
 print(ans)
