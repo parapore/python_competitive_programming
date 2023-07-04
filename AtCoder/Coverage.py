@@ -1,17 +1,3 @@
-from collections import defaultdict
-import itertools
-import math
-import io
-import sys
-import os
-import re
-os.system("Cls")
-with open("C:\\Users\\jkoa7\\vscode_workspace\\python_competitive_programming\\AtCoder\\HandInput.txt") as TxtOpen:
-    INPUT = TxtOpen.read()
-sys.stdin = io.StringIO(INPUT)
-from fractions import Fraction
-from decimal import Decimal
-# --------------------------------------------------------
 import itertools
 
 N, M = map(int, input().split())
