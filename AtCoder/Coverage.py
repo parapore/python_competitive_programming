@@ -1,3 +1,17 @@
+from collections import defaultdict
+import itertools
+import math
+import io
+import sys
+import os
+import re
+os.system("Cls")
+with open("C:\\Users\\jkoa7\\vscode_workspace\\python_competitive_programming\\AtCoder\\HandInput.txt") as TxtOpen:
+    INPUT = TxtOpen.read()
+sys.stdin = io.StringIO(INPUT)
+from fractions import Fraction
+from decimal import Decimal
+# --------------------------------------------------------
 import itertools
 
 N, M = map(int, input().split())
@@ -26,6 +40,26 @@ for bit in itertools.product((0,1), repeat = M):
         if num not in S:
             b = False
     
+    if b:
+        ans += 1
+    S.clear()
+
+#----------ビット演算子バージョン-------------------------------------
+
+def judge2(bit):
+    for i in range(M):
+        if bit & (1 << i):
+            S.update(A[i])
+
+ans = 0
+for bit in range(1 << M):
+    judge2(bit)
+
+    b = True
+    for i in range(1, N+1):
+        if i not in S:
+            b = False
+        
     if b:
         ans += 1
     S.clear()
