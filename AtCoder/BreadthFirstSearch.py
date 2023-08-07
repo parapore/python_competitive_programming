@@ -40,4 +40,5 @@ while previous[now] != -2:
     now = previous[now]
     ans.append(now + 1)
 
+# 最短経路を出力
 print(*ans[::-1])
