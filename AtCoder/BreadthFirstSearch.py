@@ -21,6 +21,8 @@ route[0] = [0]#始点を探索経路に追加
 while(len(Q)) > 0:
     vertex = Q.popleft() #先入れ先出し
     #vertex = Q.pop #後入れ先出し
+    seen[vertex] = True
+    
     for next in g[vertex]:
         if seen[next]: #探索済みはスルー
             continue
