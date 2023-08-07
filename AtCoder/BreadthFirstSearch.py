@@ -15,6 +15,7 @@ for i in range(n-1):
     u=u-1
     v=v-1
     g[u].append(v)
+    g[v].append(u)
 
 Q.append(0)#始点をキューに追加
 route[0] = [0]#始点を探索経路に追加
@@ -22,7 +23,7 @@ while(len(Q)) > 0:
     vertex = Q.popleft() #先入れ先出し
     #vertex = Q.pop #後入れ先出し
     seen[vertex] = True
-    
+
     for next in g[vertex]:
         if seen[next]: #探索済みはスルー
             continue
