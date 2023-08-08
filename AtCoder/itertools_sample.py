@@ -1,6 +1,6 @@
 import itertools
 
-# 直積 ネストしたforループと同じ　0～3の数字の全通り。
+# 直積 ネストしたforループと同じ　0～2の数字の全通り。
 # repeat=for文のネスト数と同じ。つまり数列の桁数。3*3*3=27
 for product in itertools.product(range(0,3), repeat=3):
     print(product)
