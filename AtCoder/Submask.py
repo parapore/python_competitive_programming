@@ -1,3 +1,4 @@
+import itertools
 
 n=int(input())
 nisin=format(n,'b')
