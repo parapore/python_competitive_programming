@@ -215,3 +215,14 @@ while abs(ok-ng) > 1:
     else:
     	ng = mid
 print(ok,ng) # "6 5" が出力される
+#------------------------------------------------------------------
+#配列を右にシフト
+ls=[1,2,3,4]
+length = len(ls)
+temp0 = ls[0] # 退避
+for i in range(length):
+    index = (i + 1) % length # 上界。配列長さを超えたら０に戻る
+    temp1 = ls[index] # 退避
+    ls[index] = temp0
+    temp0 = temp1 # ここがポイント   
+print(ls) # [4, 1, 2, 3]
