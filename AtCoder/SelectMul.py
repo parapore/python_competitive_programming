@@ -1,6 +1,7 @@
 
 # bit演算子を使うバージョン
 s=list(input())
+s.sort(reverse=True)
 N=len(s)
 
 # 数列をビット全探索
@@ -12,8 +13,8 @@ def judge2(bit,mutiply):
             t1.append(s[i])
         else:
             t2.append(s[i])
-        t1.sort(reverse=True)
-        t2.sort(reverse=True)
+        # t1.sort(reverse=True)
+        # t2.sort(reverse=True)
 
     if len(t1)==0 or len(t2) == 0:
         return 0
