@@ -185,7 +185,16 @@ while previous[now] != -2:
 print(*ans[::-1])
 
 #----------------------------------------------------------------------
-#2分探索
+#2分探索。二分探索
+import bisect
+ls1 = [1,2,2,3,4,5]
+
+#bisect(ソート済みリスト, 探索したい値)
+print(bisect.bisect_left(ls1, 2)) #1　挿入できる値の左INDEXを返す
+print(bisect.bisect_right(ls1, 2)) #3 挿入できる値の右INDEXを返す
+print(bisect.bisect(ls1, 2)) #3 同上
+
+#自力実装
 # ok･･･条件を満たすなかで最大のindex。左側をOKにする
 # ng･･･条件を満たさないなかで最小のindex。右側をNGにする
 def is_ok2(i):
