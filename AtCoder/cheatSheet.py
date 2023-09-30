@@ -255,3 +255,50 @@ ranking = { before: i for i, before in enumerate(B) }
 # 元の順番を維持したまま、座標圧縮
 for Xi in X:
     print(ranking[Xi], end=" ") #1 4 3 3 3 2 0 5
+
+#-------------------------------------------------------------------------
+#ダイクストラ法
+#2頂点間の最短距離を求める
+# https://dodosu.hatenablog.jp/entry/2023/09/24/140950
+
+import heapq
+import math
+
+N=6
+visited=[False]*N
+#始点からの距離。初めは全頂点に無限値にする
+startFromDistance=[math.inf]*N 
+
+#(頂点番号,重み)のタプルを持つグラフ
+G=[[(1,1),(2,5)]
+   ,[(0,1),(2,4),(3,2)]
+   ,[(0,5),(1,2),(4,2)]
+   ,[(2,3),(5,3)]
+   ,[(2,1),(5,4)]
+   ,[]]
+
+def dijkstra(G, vertex):
+  heap=[(0,0)]#重み、頂点番号（優先度付きキュー。最も重みの軽い頂点から優先で取り出す）
+  startFromDistance[0] = 0
+
+  while len(heap) > 0:
+    distance, now = heapq.heappop(heap)
+    
+    if visited[now]:
+      continue
+    visited[now] = True
+
+    for next, weight in G[now]:
+      if visited[next]:
+        continue
+
+      # nowから到達可能な頂点の距離更新
+      newDistance = startFromDistance[now] + weight
+      if newDistance < startFromDistance[next]:
+        startFromDistance[next] = newDistance
+
+        #次の行き先候補を格納
+        heapq.heappush(heap, (newDistance, next))
+  return startFromDistance
+
+print(dijkstra(G, 0))
